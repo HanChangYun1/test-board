@@ -1,0 +1,23 @@
+<mapper namespace="board.testboard.mapper.PostMapper">
+
+    <select id="getAllPosts" resultType="Post">
+        SELECT * FROM posts
+    </select>
+
+    <select id="getPostById" parameterType="long" resultType="Post">
+        SELECT * FROM posts WHERE id = #{id}
+    </select>
+
+    <insert id="createPost" parameterType="Post">
+        INSERT INTO posts (title, content) VALUES (#{title}, #{content})
+    </insert>
+
+    <update id="updatePost" parameterType="Post">
+        UPDATE posts SET title = #{title}, content = #{content} WHERE id = #{id}
+    </update>
+
+    <delete id="deletePost" parameterType="long">
+        DELETE FROM posts WHERE id = #{id}
+    </delete>
+
+</mapper>
