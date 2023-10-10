@@ -13,6 +13,11 @@ public class PostServiceImpl implements PostService {
     private PostMapper postMapper;
 
     @Override
+    public void createPost(Post post) {
+        postMapper.createPost(post.getTitle(), post.getContent());
+    }
+
+    @Override
     public List<Post> getAllPosts() {
         return postMapper.getAllPosts();
     }
@@ -23,13 +28,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void createPost(Post post) {
-        postMapper.createPost(post);
-    }
-
-    @Override
     public void updatePost(Post post) {
-        postMapper.updatePost(post);
+        postMapper.updatePost(post.getId(), post.getTitle(), post.getContent());
     }
 
     @Override

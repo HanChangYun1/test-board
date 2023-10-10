@@ -6,9 +6,9 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 @Mapper
 public interface PostMapper {
+    void createPost(String title, String content);
     List<Post> getAllPosts();
     Post getPostById(Long id);
-    void createPost(Post post);
-    void updatePost(Post post);
+    void updatePost(Long id, String title, String content);
     void deletePost(Long id);
 }
